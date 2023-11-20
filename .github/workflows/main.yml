@@ -43,6 +43,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=TestTest -Dsonar.projectName='TestTest' -Dsonar.exclusions=**/dao/**,**/model/** -e -X
+        run: mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=TestTest -Dsonar.projectName=TestTest -Dsonar.exclusions=**/controller/**,**/model/** -e -X
+
 
 
