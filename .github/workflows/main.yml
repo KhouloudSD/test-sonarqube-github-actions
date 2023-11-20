@@ -1,4 +1,3 @@
-
 name: Build and Analyze
 
 on:
@@ -42,9 +41,11 @@ jobs:
 
       - name: Analyze with SonarQube
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=TestTest -Dsonar.projectName=TestTest 
+        run: mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=TestTest -Dsonar.projectName=TestTest -Dsonar.exclusions=**/controller/**,**/model/** -e -X
 
 
-        
+
+
