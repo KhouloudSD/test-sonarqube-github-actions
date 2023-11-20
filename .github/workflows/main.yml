@@ -42,8 +42,8 @@ jobs:
       - name: Analyze with SonarQube
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_TOKEN: "squ_b5a3a8b84cbfaa813bfbd4904ac8b4b1d25efac8"
+          SONAR_HOST_URL: "http://localhost:9000/"
         run: mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=TestTest -Dsonar.projectName=TestTest -Dsonar.exclusions=**/controller/**,**/model/** -e -X
 
 
